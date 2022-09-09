@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
 
-
-
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false)
   const buttons = ['AC', 'DEL', '%', '/', 7, 8, 9, '*', 4, 5, 6, '-', 3, 2, 1, '+', 0, '.', '+/-', '=']  
 
   const [currentNumber, setCurrentNumber] = useState("")
@@ -59,7 +56,6 @@ export default function App() {
   }
 
 
-
   return (
     <View>
       <View style={styles.results}>
@@ -69,12 +65,11 @@ export default function App() {
       <View style={styles.buttons}>
         {buttons.map((button) => 
           button === '=' ?
-        <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, {backgroundColor: '#9DBC7B'}]}>
+        <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, {backgroundColor: '#eda011'}]}>
           <Text style={[styles.textButton, {color: "white", fontSize: 30}]}>{button}</Text>
         </TouchableOpacity>
           :
-          <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button, 
-          {backgroundColor: typeof(button) === 'number' ? darkMode === true ? '#303946' : '#fff': darkMode === true ? '#414853' : '#ededed'}]}>
+          <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[styles.button]}>
             <Text style={styles.textButton}>{button}</Text>
           </TouchableOpacity>
         )}
@@ -85,7 +80,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   results: {
-    backgroundColor: darkMode ? "#282f3b" : "#f5f5f5",
+    backgroundColor: "#f5f5f5",
     width: '100%',
     minHeight: 280,
     marginTop: -70,
@@ -93,13 +88,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   resultText: {
-    color: darkMode ? "#f5f5f5" : "#282F38",
+    color:"#282F38",
     margin: 10,
     fontSize: 40
   },
 
   historyText:{
-    color: darkMode ? "#B5B7BB" : "#7c7c7c",
+    color:"#7c7c7c",
     fontSize: 20,
     marginRight: 10,
     alignSelf: 'flex-end',
@@ -108,7 +103,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     bottom: 120,
     margin: 10,
-    backgroundColor: darkMode ? "#7b8084" :"#e5e5e5",
+    backgroundColor: "#e5e5e5",
     alignItems: 'center',
     justifyContent: 'center',
     width: 50,
@@ -121,7 +116,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   button: {
-    borderColor: darkMode ? '#3f4d5b' : "#e5e5e5",
+    borderColor:"#e5e5e5",
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -130,7 +125,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   textButton: {
-    color: darkMode ? "#b5b7bb" : "#7c7c7c",
+    color:"#7c7c7c",
     fontSize: 20,
   }, 
 });
